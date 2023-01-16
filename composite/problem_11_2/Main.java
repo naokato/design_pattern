@@ -32,6 +32,8 @@ public class Main {
     rootdir.printList();
     
     System.out.println();
+    System.out.println(rootdir.getFullPath());
+    System.out.println(yuki.getFullPath());
     System.out.println(diary.getFullPath());
   }
 }

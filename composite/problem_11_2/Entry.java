@@ -1,17 +1,24 @@
 // Component
 public abstract class Entry {
-  protected String parrentPath = "";
+  protected Entry parent;
 
   public abstract String getName();
   
   public abstract int getSize();
   
-  public void setParrentPath(String parrentPath) {
-    this.parrentPath = parrentPath;
+  public void setParent(Entry parent) {
+    this.parent = parent;
   }
   
   public String getFullPath() {
-    return parrentPath + "/" + getName();
+    StringBuilder sb = new StringBuilder();
+    Entry entry = this;
+    do {
+      sb.insert(0, entry.getName());
+      sb.insert(0, "/");
+      entry = entry.parent;
+    } while (entry != null);
+    return sb.toString();
   }
 
   public void printList() {

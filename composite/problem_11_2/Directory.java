@@ -40,7 +40,7 @@ public class Directory extends Entry {
   // enable method chain by using Directory as return type
   public Directory add(Entry entry) {
     directory.add(entry);
-    entry.setParrentPath(parrentPath + "/" + getName());
+    entry.setParent(this);
     return this;
   }
 }
